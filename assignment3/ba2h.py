@@ -23,7 +23,6 @@ def DistanceBetweenPatternAndStrings(pattern, dna):
 			ZwHDist = HammDistance(pattern, t[kmer:kmer+k])
 			if ZwHDist < HammingDistance:
 				HammingDistance = ZwHDist
-        # Summer aller kleinst möglichen Hamming-Distanzen der unterschiedlichen Sequenzen wird gebildet
 		distance += HammingDistance
 	return distance
 
