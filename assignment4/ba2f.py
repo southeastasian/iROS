@@ -30,6 +30,7 @@ def numberToSymbol(x):
 	if x == 3:
 		return "T"
 
+#creating profile of probabilties (in terms of the occurences of each base pairs in the given list of sequences) to search for the best motif in every sequence
 def profileProbable(text, k, profile):
 	maxprob = 0
 	kmer = text[0:k]
@@ -63,6 +64,7 @@ def distanceBetweenPatternAndString(pattern, dna):
 		distance += hamming
 	return distance
 
+#creating Profile-Matrix
 def profileForm(motifs):
 	k = len(motifs[0])
 	profile = [[1 for i in range(k)] for j in range(4)]
@@ -75,6 +77,7 @@ def profileForm(motifs):
 			x[i] = x[i]/len(motifs)
 	return profile
 
+#with the help of profile-matrix a consensus of the list of sequences will be operated
 def consensus(profile):
 	str = ""
 	for i in range(len(profile[0])):
@@ -87,6 +90,7 @@ def consensus(profile):
 		str+=numberToSymbol(loc)
 	return str
 
+#using scoring methode to 'evaluate' the consensus 
 def score(motifs):
 	profile = profileForm(motifs)
 	cons = consensus(profile)
@@ -97,6 +101,7 @@ def score(motifs):
 				score += 1
 	return score
 
+#randomly select k-mers for best motives 
 def randomMotifSearch(dna, k, t):
 	bestMotifs = []
 	motifs = []
