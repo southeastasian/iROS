@@ -136,3 +136,5 @@ for x in range(1000):
 print(min)
 for x in best:
         print(x)
+
+#the randommotifsearch engine is set to 1000 times. after which, 20 best motives out of the bunch will be presented
